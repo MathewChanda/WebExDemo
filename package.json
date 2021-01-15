@@ -36,5 +36,6 @@
       "last 1 firefox version",
       "last 1 safari version"
     ]
-  }
+  }, 
+  "proxy": "https://webexapis.com/v1/access_token"
 }
