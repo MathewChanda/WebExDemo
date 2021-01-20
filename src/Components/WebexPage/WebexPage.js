@@ -1,8 +1,10 @@
 import React from 'react'
 import Select from 'react-select';
+import ReactDOM from 'react-dom';
 import "./WebexPage.css"
-
-
+import '@momentum-ui/core/css/momentum-ui.min.css';
+import '@webex/components/dist/css/webex-components.css';
+import { WebexMeetingWidget } from '@webex/widgets';
 
 class WebexPage extends React.Component{
     constructor(){
@@ -17,11 +19,14 @@ class WebexPage extends React.Component{
             redirectUri : "http://localhost:3000/webex", 
             accessToken :"",
             meetings: [], 
-            options : [{ value: "Loading...", label: "Loading..."}]
+            options : [], 
+            selectedOption : null
         }
 
         this.getMeetings = this.getMeetings.bind(this)
+        this.startMeetings = this.startMeetings.bind(this)
     }
+
 
     componentDidMount(){
         const search = window.location.search;
@@ -74,6 +79,17 @@ class WebexPage extends React.Component{
         .then(() => console.log(this.state))
     }
 
+
+    startMeetings(){
+        if(this.state.selectedOption == null){
+            alert("Please select a meeting in the dropdown!")
+        }
+
+        else{
+            ReactDOM.render(<div><h1><WebexMeetingWidget accessToken={this.state.accessToken} meetingDestination={this.state.options.values} /></h1></div>, document.getElementById('webexWidgetDic'))
+        }
+    }
+
     render(){
         return(
         <div>
@@ -85,8 +101,10 @@ class WebexPage extends React.Component{
                     onChange={this.handleChange}
                     options={this.state.options}
                 />
-            <div id="buttonStyle"> 
+            <div id="buttonStyle" onClick={this.startMeetings}> 
                <button>Start Meeting</button>
+            </div>
+            <div id="webexWidgetDic">
             </div>
         </div>)
     }

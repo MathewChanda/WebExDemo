@@ -18,7 +18,8 @@
     "react-select": "^3.2.0",
     "rxjs": "^6.6.3",
     "web-vitals": "^0.2.4",
-    "webex": "^1.114.0"
+    "webex": "^1.114.0",
+    "widget": "^0.0.2"
   },
   "scripts": {
     "start": "react-scripts start",
