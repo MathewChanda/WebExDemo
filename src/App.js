@@ -9,6 +9,8 @@ import Login from './Components/Login/Login';
 import WebexPage from './Components/WebexPage/WebexPage';
 import '@momentum-ui/core/css/momentum-ui.min.css';
 import '@webex/components/dist/css/webex-components.css';
+import NewMeetingForm from './Components/NewMeetingForm/NewMeetingForm';
+
 
 function App() {
   return (
@@ -26,6 +28,10 @@ function App() {
 
             <Route exact path="/webex"> 
               <WebexPage/>
+            </Route>
+
+            <Route exact path="/webex/create"> 
+              <NewMeetingForm/>
             </Route>
           </Switch>
         </div>

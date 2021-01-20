@@ -1,0 +1,11 @@
+#addUserStyleDiv{
+    margin-top: 10px;
+    display: flex;
+    justify-content: space-evenly;
+    align-items: center;
+    flex-direction: row;
+}
+
+#buttonStyle{
+    margin-top: 10px;
+}
